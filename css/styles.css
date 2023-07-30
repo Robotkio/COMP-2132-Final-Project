@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+@import url("normalize.css");
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* 
+    Cory Knapp - A00792990 
+    COMP 2132
+*/
+
+
+
+/*
+        BLOCK ELEMENTS
+*/
+
+html {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: rgb(85, 13, 13);
+    color: rgb(219, 210, 194);
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: white;
+    display: block;
+    border-bottom: 1px solid rgb(219, 210, 194);
+    text-align: center;
+}
+
+h2 {
+    color: white;
+}
+
+/*
+        CLASSES
+*/
+
+.error {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 4px;
+    border: 1px dotted rgb(219, 210, 194);
+    background-color: rgb(134, 0, 0);
+}
+
+.wrapper {
+    margin: auto;
+    border-radius: 10px;
+    vertical-align: bottom;
+    background-color: rgb(43, 23, 23);
+}
+
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.box {
+    width: 100%;
+    padding: 15px;
+}
+
+.titleBox {
+    width: 100%;
+    padding: 15px;
+}
+
+.footerBox {
+    width: 100%;
+    padding: 15px;
+}
+
+a:link, a:visited, a:active{
+    color:orangered;
+}
+a:hover{
+    color:yellow;
+}
+
+/*
+        ID'S
+*/
+
+#copywrite {
+    display: block;
+    color: rgb(129, 114, 107);
+    border-bottom: 1px solid rgb(129, 114, 107);
+    text-align: right;
+}
+
+/*
+        MEDIA QUERIES
+*/
+
+@media screen and (max-width: 379px) {
+
+    .wrapper {
+        width: 100%;
+        border-radius: 0px;
+    }
+}
+
+@media screen and (min-width: 380px) {
+
+    .wrapper {
+        width: 90%;
+        border-radius: 0px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+
+    .wrapper {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 80%;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (min-width: 1080px) {
+
+    .wrapper {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        max-width: 1000px;
+        width: 70%;
+        border-radius: 10px;
+    }
+}

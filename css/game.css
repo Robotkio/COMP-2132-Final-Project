@@ -1,0 +1,229 @@
+@charset "utf-8";
+
+/* 
+    Cory Knapp - A00792990 
+    COMP 2132
+*/
+
+:root {
+    --image-size: 50px;
+    --bad-color: red;
+    --close-color: yellow;
+    --good-color: green;
+
+    --win-popup-x: 200px;
+    --win-popup-y: 150px;
+}
+
+#game-box {
+    min-width: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#previous-guesses {
+    border: 2px solid burlywood;
+    border-radius: 2px;
+    background-color: rgb(85, 13, 13);
+
+    max-width: calc((var(--image-size) + 10px) * 5);
+    min-height: calc(var(--image-size) + 35px);
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+#current-guess {
+    border: 2px solid gold;
+    border-radius: 2px;
+    background-color: rgb(85, 13, 13);
+
+    min-height: calc(var(--image-size) + 35px);
+    max-width: calc((var(--image-size) + 10px) * 5);
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+#previous-guesses table {
+    margin: auto;
+}
+
+#current-guess table {
+    margin: auto;
+}
+
+#current-guess table td {
+    width: calc(var(--image-size) + 3px);
+}
+
+.game-image {
+    filter: grayscale( 0% );
+    width: var(--image-size);
+    height: auto;
+}
+
+.guess-wrong img {
+    border: 3px dashed var(--bad-color);
+    box-shadow: 0px 0px 10px var(--bad-color);
+    border-radius: calc(var(--image-size) / 2);
+}
+.guess-close img {
+    border: 3px double var(--close-color);
+    box-shadow: 0px 0px 10px var(--close-color);
+    border-radius: calc(var(--image-size) / 2);
+}
+.guess-exact img {
+    border: 3px solid var(--good-color);
+    box-shadow: 0px 0px 10px var(--good-color);
+    border-radius: calc(var(--image-size) / 2);
+}
+
+#input-pannel {
+    border: 2px solid burlywood;
+    border-radius: 2px;
+    background-color: rgb(85, 13, 13);
+    max-width: calc((var(--image-size) + 10px) * 5);
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    position: relative;
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+.panel-label {
+    border: inherit;
+    border-radius: 2px;
+    background-color: rgb(85, 13, 13);
+
+    padding: 2px 5px 2px 5px;
+
+    position: absolute;
+    left: 5px;
+    top: -0.5em;
+}
+
+#input-pannel img {
+    margin: 2px;
+    border: 2px solid burlywood;
+    border-radius: calc(var(--image-size) / 2);
+}
+
+.disabled-game-image {
+    filter: grayscale( 100% );
+    pointer-events: none;
+}
+
+#input-pannel img:hover {
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+
+    box-shadow: 2px 2px 2px black;
+    border-radius: calc(var(--image-size) / 2);
+    filter: brightness(1.25);
+}
+
+#input-pannel img:active {
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+
+    box-shadow: none;
+}
+
+#current-guess img {
+    border-radius: calc(var(--image-size) / 2);
+}
+
+#current-guess p, #previous-guesses p {
+    color: rgb(131, 109, 81);
+    margin: auto;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.btn-enabled {
+    background-color: brown;
+    border: 2px solid burlywood;
+    color: burlywood;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-enabled:hover {
+    background-color: rgb(218, 34, 34);
+    border: 2px solid burlywood;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+
+    position: relative;
+    top: -2px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.btn-enabled:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+.btn-disabled {
+    background-color: rgb(107, 107, 107);
+    border: 2px solid rgb(184, 184, 184);
+    color: rgb(184, 184, 184);
+    border-radius: 3px;
+}
+
+#button-zone {
+    padding: 5px;
+}
+
+#button-zone button {
+    width: 48%;
+    text-overflow: clip;
+}
+
+#button-zone button:last-child {
+    margin-top: 4px;
+    width: 98%;
+}
+
+#win-screen {
+    display: none;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    left: 0px;
+    top: 0px;
+
+    background-color: rgb(0, 0, 0, .3);
+}
+
+#win-popup {
+    border: 2px solid burlywood;
+    border-radius: 2px;
+    background-color: rgb(85, 13, 13);
+
+    width: var(--win-popup-x);
+    height: var(--win-popup-y);
+
+    position: fixed;
+    margin-left: 50%;
+    margin-top: 50%;
+}

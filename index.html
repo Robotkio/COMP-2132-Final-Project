@@ -1,0 +1,101 @@
+<!-- Cory Knapp - A00792990 - COMP 2132 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Assignment 10 - Cory Knapp A00792990 - COMP 2132</title>
+
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/game.css">
+
+        <script src="script/jquery-3.7.0.min.js" defer></script>
+        <script src="script/game.js" defer></script>
+        <script src="script/assignment10.js" defer></script>
+
+
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="flexContainer">
+                <div class="titleBox">
+                    <h1>Term Project: Mastermind-Style Game</h1>
+                </div>
+                <div class="box">
+                    <div id="game-box">
+                        <div id="previous-guesses">
+                            <div class="panel-label">Previous Guesses</div>
+                            <p>No previous guesses!</p>
+                        </div>
+                        <div id="current-guess">
+                            <div class="panel-label">Current Guess</div>
+                            <p>No current guess!</p>
+                        </div>
+                        <div id="input-pannel">
+                            <div class="panel-label">Input Panel</div>
+                            <img src="images/icons/00.png" alt="0" class="game-image">
+                            <img src="images/icons/01.png" alt="1" class="game-image">
+                            <img src="images/icons/02.png" alt="2" class="game-image">
+                            <img src="images/icons/03.png" alt="3" class="game-image">
+                            <img src="images/icons/04.png" alt="4" class="game-image">
+                            <img src="images/icons/05.png" alt="5" class="game-image">
+                            <img src="images/icons/06.png" alt="6" class="game-image">
+                            <img src="images/icons/07.png" alt="7" class="game-image">
+                            <img src="images/icons/08.png" alt="8" class="game-image">
+                            <img src="images/icons/09.png" alt="9" class="game-image">
+                            <div id="button-zone">
+                                <button id="backspace" value="backspace">Backspace</button>
+                                <button id="new-game" value="new">New Game</button>
+                                <button id="submit" value="submit">Submit Guess</button>
+                            </div>
+                        </div>
+                        <div id="win-screen">
+                            <div id="win-popup">
+                                <p>You won!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Instructions:</h3>
+
+                    <p>Welcome to my project! It's my rendition of an older game called "<a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)" target="_blank">Mastermind</a>". My game is different than Mastermind, though, because I made most of the game before checking the rules to Mastermind and now it's too late to start over. My game will generate a hidden series of five symbols. The symbols will be chosen from the ones in the Input Panel You will submit guesses on what that series of symbols is. Try to guess the answer in as few guesses as you can! For more instructions, read on...</p>
+
+                    <ol>
+                        <li>When you load the page or click the "New Game" button the game will generate a new, hidden code for you to guess.</li>
+                        <li>Click on the coloured symbols in the input panel to create a guess. It will show up in the "Current Guess" panel.</li>
+                        <li>If you want to change your guess before submitting it use the "Backspace" button.</li>
+                        <li>When you have five symbols in your guess you can click the "Submit Guess" button to see if you've got it right.</li>
+                    </ol>
+
+                    <p>Try it for yourself! Click on five of the coloured symbols and then click "Submit Guess". After you've submitted your first guess take a look at the instructions below to see what it means:</p>
+
+                    <h3>How do I decipher my previous guess?</h3>
+
+                    <p>That's a good question! The symbols in your "Previous Guesses" area will have a coloured glow around them to tell you how good your guess was. Below is an example of a "previous guess" so I can talk about it. (This guess is just made up and doesn't relate to your current guess or current secret answer.)</p>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="guess-exact"><img src="images/icons/05.png" alt="5" class="game-image"></td>
+                                <td class="guess-wrong"><img src="images/icons/02.png" alt="2" class="game-image"></td>
+                                <td class="guess-close"><img src="images/icons/06.png" alt="6" class="game-image"></td>
+                                <td class="guess-close"><img src="images/icons/05.png" alt="5" class="game-image"></td>
+                                <td class="guess-wrong"><img src="images/icons/05.png" alt="5" class="game-image"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>When a symbol has a green, solid glow that means it's the right symbol in the right place. So from the example above we know the first symbol in the answer would be a blue water-drop.</p>
+
+                    <p>When a symbol has a red, dashed glow that means that symbol isn't even in the answer. So in the example above we know there is not even one orange, fire symbol in the answer.</p>
+
+                    <p>A yellow, double-border glow is a bit more complicated. When a symbol has a yellow glow it means that symbol is in the answer, just not in that spot. So in the above example we know that there is a green leaf in the answer, but it isn't the third symbol in the answer.</p>
+
+                    <p>You've also probably noticed the example has three, blue water-drops; one with a green, solid glow, one with a yellow, double-border glow and one with a red, dashed glow. As I mentioned before the green glow means that the first symbol in the answer would be a blue water-drop. That's the only one we know we got right for certain. The yellow-glowing water-drop means that there is a second water-drop symbol somewhere in the answer, just not in the fourth spot. The red-glowing water-drop means two things; First, it means there isn't a third water-drop anywhere in the answer. Secondly, it means there isn't a water-drop in the last spot of the answer.</p>
+
+                    <p>Now see if you can use this information to change your next guess and discover the secret code!</p>
+                </div>
+                <div class="footerBox">
+                    <span id="copywrite">Copywrite Cory Knapp</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
