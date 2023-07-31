@@ -51,6 +51,8 @@ class GameRules {
         for ( let i = 0; i < this.#difficulty; i++ ) {
             this.#answer.push( GameRules.#gameImages[ Math.floor(Math.random() * GameRules.#gameImages.length ) ] );
         }
+
+        console.log(this.#answer);
     }
 
     getAnswerValues() {

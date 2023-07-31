@@ -1,0 +1,225 @@
+@charset "utf-8";
+
+$symbol-size: 50px;
+$symbol-bad-colour:   red;
+$symbol-close-colour: yellow;
+$symbol-good-colour:  green;
+
+$popup-victory-width:  200px;
+$popup-victory-height: 150px;
+
+$game-panel-max-width:  ($symbol-size + 10px) * 5;
+$game-panel-min-height: $symbol-size + 35px;
+$game-panel-background-color: rgb(85, 13, 13);
+$game-panel-border-color:     burlywood;
+$game-panel-info-text-color:  rgb(131, 109, 81);
+
+$current-guess-colour: gold;
+$current-guess-td-width: $symbol-size + 3px;
+
+$game-button-border-colour:     burlywood;
+$game-button-background-colour: brown;
+
+@mixin game-panel-display ($back-col: $game-panel-background-color, $bord-col: $game-panel-border-color) {
+    border: 2px solid $bord-col;
+    border-radius: 2px;
+    background-color: $back-col;
+
+    max-width: $game-panel-max-width;
+    min-height: $game-panel-min-height;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+@mixin symbol-highlight ($col, $style, $size: 3px) {
+    border: $size $style $col;
+    box-shadow: 0px 0px 10px $col;
+    border-radius: calc($symbol-size / 2);
+}
+
+@mixin button-appearance () {
+    background-color: $game-button-background-colour;
+    border: 2px solid $game-button-border-colour;
+    color: $game-button-border-colour;
+    border-radius: 3px;
+}
+
+#game-box {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#previous-guesses {
+    @include game-panel-display();
+}
+
+#current-guess {
+    @include game-panel-display($game-panel-background-color, $current-guess-colour);
+}
+
+#input-pannel {
+    @include game-panel-display();
+
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#previous-guesses table, #current-guess table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#current-guess table td {
+    width: $current-guess-td-width;
+}
+
+.game-image {
+    filter: grayscale( 0% );
+    width: $symbol-size;
+    height: auto;
+}
+
+.guess-wrong img {
+    @include symbol-highlight($symbol-bad-colour, dashed);
+}
+.guess-close img {
+    @include symbol-highlight($symbol-close-colour, double);
+}
+.guess-exact img {
+    @include symbol-highlight($symbol-good-colour, solid);
+}
+
+
+.panel-label {
+    border: inherit;
+    border-radius: inherit;
+    background-color: $game-panel-background-color;
+
+    padding: 2px 5px 2px 5px;
+
+    position: absolute;
+    left: 5px;
+    top: -0.5em;
+}
+
+#input-pannel img {
+    margin: 2px;
+    border: 2px solid $game-panel-border-color;
+    border-radius: calc($symbol-size / 2);
+}
+
+.disabled-game-image {
+    filter: grayscale( 100% );
+    pointer-events: none;
+}
+
+#input-pannel img:hover {
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+
+    box-shadow: 2px 2px 2px black;
+    border-radius: calc($symbol-size / 2);
+    filter: brightness(1.25);
+}
+
+#input-pannel img:active {
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+
+    box-shadow: none;
+}
+
+#current-guess img {
+    border-radius: calc($symbol-size / 2);
+}
+
+#current-guess p, #previous-guesses p {
+    color: $game-panel-info-text-color;
+    margin: auto;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.btn-enabled {
+    @include button-appearance();
+
+    filter: grayscale( 0% );
+    cursor: pointer;
+}
+
+.btn-enabled:hover {
+    filter: grayscale( 0% );
+    filter: brightness(1.25);
+
+    position: relative;
+    top: -2px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.btn-enabled:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+.btn-disabled {
+    @include button-appearance();
+
+    filter: grayscale( 100% );
+}
+
+#button-zone {
+    padding: 5px;
+}
+
+#button-zone button {
+    width: 48%;
+    text-overflow: clip;
+}
+
+#button-zone button:last-child {
+    margin-top: 4px;
+    width: 98%;
+}
+
+#win-screen {
+    display: none;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    left: 0px;
+    top: 0px;
+
+    background-color: rgb(0, 0, 0, .4);
+}
+
+#win-popup {
+    border: 2px solid $game-panel-border-color;
+    border-radius: 2px;
+    background-color: $game-panel-background-color;
+    
+    box-shadow: 5px 5px 5px black;
+
+    width: $popup-victory-width;
+    height: $popup-victory-height;
+
+    position: fixed;
+
+    top: calc(50% - ($popup-victory-height / 2));
+    left: calc(50% - ($popup-victory-width / 2));
+
+    text-align: center;
+    padding: 10px;
+}
