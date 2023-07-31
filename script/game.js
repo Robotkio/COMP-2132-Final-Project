@@ -52,7 +52,8 @@ class GameRules {
             this.#answer.push( GameRules.#gameImages[ Math.floor(Math.random() * GameRules.#gameImages.length ) ] );
         }
 
-        console.log(this.#answer);
+        // uncomment this to post the answer to the console for debug
+        //console.log(this.#answer);
     }
 
     getAnswerValues() {
